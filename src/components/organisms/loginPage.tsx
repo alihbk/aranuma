@@ -5,6 +5,7 @@ import { Grid, Stack } from "@mui/material";
 import CustomInput from "../atoms/customInput";
 import { useFormik } from "formik";
 import { loginValidation } from "../../validations/validation";
+import CustomButton from "../atoms/customButton";
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const Container = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: 10,
+  padding: 30,
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -56,10 +57,10 @@ const LoginPage = (props: Props) => {
 
   let renderUsername = (
     <Grid container spacing={2} columns={12} alignItems={"center"}>
-      <Grid item xs={4} alignContent={"center"}>
+      <Grid item xs={3} alignContent={"center"}>
         <div>{"نام کاربری"}</div>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={9}>
         <div>
           <CustomInput
             style={{
@@ -72,10 +73,10 @@ const LoginPage = (props: Props) => {
           />
         </div>
       </Grid>
-      <Grid item xs={4} alignContent={"center"}>
+      <Grid item xs={3} alignContent={"center"}>
         <div>{"کلمه عبور"}</div>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={9}>
         <div>
           <CustomInput
             style={{
@@ -88,18 +89,27 @@ const LoginPage = (props: Props) => {
           />
         </div>
       </Grid>
+      <Grid item xs={12}>
+
+
+      <CustomButton
+          label={"ورود به سامانه"}
+          backColor="#0066FF"
+          onClick={() => console.log("dd")}
+        />
+        </Grid>
     </Grid>
   );
 
   return (
     <Container>
-      <Stack direction={"column"}>
+      <Stack direction={"column"} alignItems={"center"}>
         <img src="../assets/logo.png" width={186} height={235} alt="" />
-
+        <br />
         {renderUsername}
-
-        <button onClick={handleLogin}>Login</button>
-        <button onClick={handleLogout}>Logout</button>
+      
+        {/* <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogout}>Logout</button> */}
       </Stack>
     </Container>
   );
