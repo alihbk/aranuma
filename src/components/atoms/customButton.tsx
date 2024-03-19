@@ -7,6 +7,7 @@ type Props = { label: String; onClick?: MouseEventHandler; width?: string,backCo
 const CustomButton = (props: Props) => {
   const ColorButton = styled(Button)<ButtonProps>(() => ({
     width: props.width ? props.width : "100%",
+    height:52,
     color: "#fff",
      backgroundColor: props.backColor,
      

@@ -6,9 +6,11 @@
   font-style: normal;
   font-display: swap;
 }
+
 * {
-  font-family: "Sahel";
+  font-family: "Sahel" !important;
 }
+
 body {
   background-color: #eaeaea;
   direction: rtl;

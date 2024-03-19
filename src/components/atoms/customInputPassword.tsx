@@ -2,8 +2,19 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const CustomInput = (props: any) => {
+const CustomInputPassword = (props: any) => {
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
   const {
     name,
     type,
@@ -29,7 +40,7 @@ const CustomInput = (props: any) => {
         className={className ? className : ""}
         name={name}
         inputRef={inputRef}
-        type={type ? type : "text"}
+        type={showPassword ? "text" : "password"}
         placeholder={placeholder}
         InputLabelProps={{ shrink: false }}
         rows={rows ? rows : 1}
@@ -48,12 +59,14 @@ const CustomInput = (props: any) => {
           ),
           endAdornment: (
             <InputAdornment position="end">
-              {iconButton ? (
-                <IconButton
-                  aria-label="toggle password visibility"
-                  edge="end"
-                ></IconButton>
-              ) : null}
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
             </InputAdornment>
           ),
         }}
@@ -72,4 +85,4 @@ const CustomInput = (props: any) => {
   );
 };
 
-export default CustomInput;
+export default CustomInputPassword;
