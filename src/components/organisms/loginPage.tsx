@@ -37,7 +37,6 @@ const LoginPage = (props: Props) => {
     },
     validationSchema: loginValidation,
     onSubmit: async (values: any) => {
- 
       try {
         let response = await authService.login(
           values.username,
@@ -57,7 +56,6 @@ const LoginPage = (props: Props) => {
     },
   });
 
- 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
@@ -108,7 +106,7 @@ const LoginPage = (props: Props) => {
           />
         </Grid>
 
-        {/* {isloginSuccess ? (
+        {isloginSuccess ? (
           <Alert variant="filled" severity="success">
             {"با موفقیت وارد شدید"}
           </Alert>
@@ -118,7 +116,7 @@ const LoginPage = (props: Props) => {
           </Alert>
         ) : (
           ""
-        )} */}
+        )}
       </Grid>
     </form>
   );
@@ -126,7 +124,7 @@ const LoginPage = (props: Props) => {
   return (
     <Container>
       <Stack direction={"column"} alignItems={"center"}>
-        <img src="../assets/logo.png" width={186} height={235} alt="" />
+        <img src="/assets/logo.png" width={186} height={235} alt="" />
         <br />
         {renderForm}
       </Stack>

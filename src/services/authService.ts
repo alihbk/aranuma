@@ -12,7 +12,7 @@ class AuthService {
       username,
       password,
     });
-     return response.data;
+    return response.data;
   }
 }
 

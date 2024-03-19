@@ -17,13 +17,11 @@ const CustomInputPassword = (props: any) => {
   };
   const {
     name,
-    type,
     placeholder,
     formik,
     style,
     inputStyle,
     rightIcon,
-    iconButton,
     handleChange,
     maxLength,
     inputRef,
