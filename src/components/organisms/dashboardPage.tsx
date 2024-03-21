@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import DashboardCard from "../molecules/dashboard/dashboardCard";
 import { styled } from "@mui/system";
 import { Box, Grid } from "@mui/material";
-import mqtt from "mqtt";
+// import mqtt from "mqtt";
 import CustomMap from "../molecules/dashboard/customMap";
+import Profile from "../molecules/dashboard/profile";
 
 type Props = {};
 
@@ -34,7 +35,6 @@ const DashboardPage = (props: Props) => {
 
   const Container = styled("div")({
     width: "85%",
-    height: "90%",
     padding: "30px 15px",
     margin: "0 auto",
   });
@@ -42,13 +42,13 @@ const DashboardPage = (props: Props) => {
   let deviceBenchmark = [
     <DashboardCard
       label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
+      icon={"/assets/icons/battery-66.png"}
       value={"66%"}
       color="#62A124"
     />,
     <DashboardCard
       label="قدرت فرکانس"
-      icon={"/assets/icons/wifi/wifi.png"}
+      icon={"/assets/icons/wifi.png"}
       value={2}
       color="#000"
     />,
@@ -56,33 +56,33 @@ const DashboardPage = (props: Props) => {
 
   let healthBenchmarks = [
     <DashboardCard
-      label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
-      value={"66%"}
+      label="اکسیژن"
+      icon={"/assets/icons/ox.png"}
+      value={"60%"}
+      color="#A62A49"
+    />,
+    <DashboardCard
+      label="فشار خون"
+      icon={"/assets/icons/feshar.png"}
+      value={"25 mmHg"}
+      color="#24A139"
+    />,
+    <DashboardCard
+      label="ضربان قلب"
+      icon={"/assets/icons/zaraban.png"}
+      value={"90"}
       color="#62A124"
     />,
     <DashboardCard
-      label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
-      value={"66%"}
-      color="#62A124"
+      label="دما"
+      icon={"/assets/icons/dama.png"}
+      value={"27.2 C"}
+      color="#A76B17"
     />,
     <DashboardCard
-      label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
-      value={"66%"}
-      color="#62A124"
-    />,
-    <DashboardCard
-      label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
-      value={"66%"}
-      color="#62A124"
-    />,
-    <DashboardCard
-      label="باطری"
-      icon={"/assets/icons/battery/battery-66.png"}
-      value={"66%"}
+      label="وضعیت کلی"
+      icon={"/assets/icons/koli.png"}
+      value={"Normal"}
       color="#62A124"
     />,
   ];
@@ -113,9 +113,18 @@ const DashboardPage = (props: Props) => {
           <Grid
             item
             xs={4.95}
-            sx={{ backgroundColor: "#fff", borderRadius: 4, padding: 5 }}
+            sx={{
+              backgroundColor: "#fff",
+              borderRadius: 4,
+              padding: "5px 25px 0px 25px",
+            }}
           >
-            {"profile"}
+            <Grid>
+              <Box sx={{   marginBottom: 1 }}>
+                {"مشخصات کاربر"}
+              </Box>
+              <Profile />
+            </Grid>
           </Grid>
           <Grid
             item

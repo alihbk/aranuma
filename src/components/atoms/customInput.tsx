@@ -4,7 +4,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 
 const CustomInput = (props: any) => {
-  const {
+   const {
     name,
     type,
     placeholder,

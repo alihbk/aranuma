@@ -49,7 +49,7 @@ const LoginPage = (props: Props) => {
 
         setTimeout(() => {
           navigate("/dashboard");
-        }, 2000);
+        }, 1000);
       } catch (error) {
         setisloginSucess(false);
       }
