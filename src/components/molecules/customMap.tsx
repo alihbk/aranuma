@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 interface Props {
-  location?: { lat: number; lng: number };
+  location?: { lat?: number; lng?: number };
 }
 
 const CustomMap = (props: Props) => {

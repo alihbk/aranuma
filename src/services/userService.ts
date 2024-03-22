@@ -1,15 +1,5 @@
 import axiosInstance from "../utils/axios";
-
-export interface UserResponse {
-  name: string;
-  lastName: string;
-  date: Date;
-  nationalCode: string;
-  personelCode: string;
-  role: string;
-  mobileNum: string;
-  watchId: string;
-}
+import { UserResponse } from "../utils/interface";
 
 class UserService {
   async profile(): Promise<UserResponse> {

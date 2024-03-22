@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
-import { baseUrl } from "./const";
+import { restBaseUrl } from "./const";
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: baseUrl,
+  baseURL: restBaseUrl,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ axiosInstance.interceptors.response.use(
         isRefreshing = true;
         const refreshToken = localStorage.getItem("refreshToken");
         try {
-          const res = await axios.post(baseUrl + "api/auth/refreshToken", {
+          const res = await axios.post(restBaseUrl + "api/auth/refreshToken", {
             refreshToken: refreshToken,
           });
           const newAccessToken = res.data.accessToken;

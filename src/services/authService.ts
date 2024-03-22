@@ -1,10 +1,5 @@
 import axiosInstance from "../utils/axios";
-
-interface LoginResponse {
-  accessToken: string;
-  accessTokenExpireDate: Date;
-  refreshTokenId: string;
-}
+import { LoginResponse } from "../utils/interface";
 
 class AuthService {
   async login(username: string, password: string): Promise<LoginResponse> {

@@ -2,8 +2,9 @@ import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import ProfileItem from "./profileItem";
-import userService, { UserResponse } from "../../../services/userService";
-import { convertToPersianDate } from "../../../utils/helper";
+import userService  from "../../services/userService";
+import { convertToPersianDate } from "../../utils/helper";
+import { UserResponse } from "../../utils/interface";
 
 type Props = {};
 const Profile = (props: Props) => {

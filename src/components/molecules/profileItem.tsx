@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import React, { Fragment } from "react";
-import CustomInput from "../../atoms/customInput";
+import CustomInput from "../atoms/customInput";
 
 type Props = { formik: any; name: string; title: string };
 

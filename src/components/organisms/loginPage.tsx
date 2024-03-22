@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { styled } from "@mui/system";
 import { Alert, Grid, Stack } from "@mui/material";
 import CustomInput from "../atoms/customInput";
@@ -55,49 +55,53 @@ const LoginPage = (props: Props) => {
       }
     },
   });
-
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-  };
-
+  let renderUsername = (
+    <Fragment>
+      <Grid item xs={3} alignContent={"center"}>
+        <div>{"نام کاربری"}</div>
+      </Grid>
+      <Grid item xs={9}>
+        <div>
+          <CustomInput
+            style={{
+              backgroundColor: "#F5F5F5",
+              border: "none",
+              height: 55.88,
+            }}
+            name="username"
+            formik={formik}
+            placeholder="نام کاربری را وارد کنید"
+          />
+        </div>
+      </Grid>
+    </Fragment>
+  );
+  let renderPassword = (
+    <Fragment>
+      <Grid item xs={3} alignContent={"center"}>
+        <div>{"کلمه عبور"}</div>
+      </Grid>
+      <Grid item xs={9}>
+        <div>
+          <CustomInputPassword
+            style={{
+              backgroundColor: "#F5F5F5",
+              border: "none",
+              height: 55.88,
+            }}
+            name="password"
+            formik={formik}
+            placeholder="کلمه عبور را وارد کنید"
+          />
+        </div>
+      </Grid>
+    </Fragment>
+  );
   let renderForm = (
     <form onSubmit={formik.handleSubmit}>
       <Grid container spacing={2} columns={12} alignItems={"center"}>
-        <Grid item xs={3} alignContent={"center"}>
-          <div>{"نام کاربری"}</div>
-        </Grid>
-        <Grid item xs={9}>
-          <div>
-            <CustomInput
-              style={{
-                backgroundColor: "#F5F5F5",
-                border: "none",
-                height: 55.88,
-              }}
-              name="username"
-              formik={formik}
-              placeholder="نام کاربری را وارد کنید"
-            />
-          </div>
-        </Grid>
-        <Grid item xs={3} alignContent={"center"}>
-          <div>{"کلمه عبور"}</div>
-        </Grid>
-        <Grid item xs={9}>
-          <div>
-            <CustomInputPassword
-              style={{
-                backgroundColor: "#F5F5F5",
-                border: "none",
-                height: 55.88,
-              }}
-              name="password"
-              formik={formik}
-              placeholder="کلمه عبور را وارد کنید"
-            />
-          </div>
-        </Grid>
+        {renderUsername}
+        {renderPassword}
         <Grid item xs={12}>
           <CustomButton
             label={"ورود به سامانه"}
@@ -128,7 +132,6 @@ const LoginPage = (props: Props) => {
         <br />
         {renderForm}
       </Stack>
-      <button onClick={handleLogout}>Logout</button>
     </Container>
   );
 };

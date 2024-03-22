@@ -5,7 +5,7 @@ import { Box, Grid } from "@mui/material";
 type Props = {
   label: string;
   icon: any;
-  value: string | number;
+  value?: string | number;
   color?: string;
 };
 
@@ -39,7 +39,14 @@ const DashboardCard = (props: Props) => {
         >
           <img src={props.icon} alt="" width={"100%"} height={"100%"} />
         </Box>
-        <Box sx={{ display: "flex", alignSelf: "center", color: props.color }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignSelf: "center",
+            color: props.color,
+            fontWeight: "bold",
+          }}
+        >
           {props.value}
         </Box>
       </Grid>
